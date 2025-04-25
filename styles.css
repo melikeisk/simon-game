@@ -4,7 +4,6 @@ body {
 }
 
 #level-title {
-  display: block;
   font-family: 'Press Start 2P', cursive;
   font-size: 3rem;
   margin: 5%;
@@ -20,12 +19,11 @@ body {
 .btn {
   margin: 25px;
   display: inline-block;
-  height: 200px;
-  width: 200px;
   border: 10px solid black;
   border-radius: 20%;
 }
 
+/* Buton renkleri */
 .game-over {
   background-color: red;
   opacity: 0.8;
@@ -63,10 +61,40 @@ body {
   margin: 20px auto;
 }
 
-/* Mobilde "Tap to Start" mesajını göster */
+/* Telefonlar için (480px ve daha küçük) */
+@media (max-width: 480px) {
+  #level-title {
+    display: none; /* Mobilde gizlensin */
+  }
+
+  #mobile-start {
+    display: block; /* Mobilde "Tap to Start" mesajını göster */
+  }
+
+  #mobile-start.game-over {
+    display: block; 
+  }
+
+  .container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 10px; 
+  }
+
+  .btn {
+    width: 30vw; 
+    height: 30vw;
+    margin: 10px 0;
+    border-radius: 20%;
+  }
+}
+
+/* 480px ve daha büyük cihazlar (tablet vs) */
 @media (max-width: 768px) {
   #level-title {
-    display: none; /* Mobilde  gizlensin */
+    display: none; /* Mobilde gizlensin */
   }
 
   /* Başlangıç için dokunma mesajı */
@@ -78,10 +106,45 @@ body {
   #mobile-start.game-over {
     display: block; 
   }
+s
+  .container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 10px;
+  }
+
+  .btn {
+    width: 30vw; 
+    height: 30vw; 
+    margin: 10px 0;
+    border-radius: 20%;
+  }
 }
 
+/* Webde (768px ve daha büyük) */
 @media (min-width: 769px) {
   #mobile-start {
     display: none;  /* Webde "Tap to Start" gizlensin */
+  }
+
+  /* Webde level-title mesajını göstermek */
+  #level-title {
+    display: block;
+  }
+
+  /* Butonları geniş ekran için hizala */
+  .container {
+    width: 50%;
+    margin: auto;
+    display: block;
+  }
+
+  .btn {
+    width: 150px; /* 150px olarak belirledim */
+    height: 150px; /* Yükseklik ve genişlik eşit olacak şekilde kare olacak */
+    margin: 25px;
+    border-radius: 20%;
   }
 }
