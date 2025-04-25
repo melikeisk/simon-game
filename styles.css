@@ -67,31 +67,32 @@ body {
     display: none; /* Mobilde gizlensin */
   }
 
+  /* Başlangıç için dokunma mesajı */
   #mobile-start {
     display: block; /* Mobilde "Tap to Start" mesajını göster */
   }
 
+  /* GAME OVER mesajı mobilde görünür olacak */
   #mobile-start.game-over {
     display: block; 
   }
 
   .container {
-    width: 100%;
+    width: 50%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    gap: 10px; 
+    gap: 5px; 
   }
 
   .btn {
-    width: 30vw; 
-    height: 30vw;
-    margin: 10px 0;
+    width: 20vw; 
+    margin: 5px 0;
     border-radius: 20%;
   }
 }
 
-/* 480px ve daha büyük cihazlar (tablet vs) */
+
 @media (max-width: 768px) {
   #level-title {
     display: none; /* Mobilde gizlensin */
@@ -106,7 +107,6 @@ body {
   #mobile-start.game-over {
     display: block; 
   }
-s
   .container {
     width: 100%;
     display: flex;
@@ -116,8 +116,8 @@ s
   }
 
   .btn {
-    width: 30vw; 
-    height: 30vw; 
+    width: 30vw; /* Genişlik, ekranın %30'u olarak ayarlandı */
+    height: 30vw; /* Yükseklik ve genişlik eşit olacak şekilde kare olacak */
     margin: 10px 0;
     border-radius: 20%;
   }
@@ -142,8 +142,8 @@ s
   }
 
   .btn {
-    width: 150px; /* 150px olarak belirledim */
-    height: 150px; /* Yükseklik ve genişlik eşit olacak şekilde kare olacak */
+    width: 150px; 
+    height: 150px; 
     margin: 25px;
     border-radius: 20%;
   }
