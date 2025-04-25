@@ -19,6 +19,17 @@ $(document).keypress(function() {
   }
 });
 
+// Mobilde "Tap to Start" tıklama olayını ekliyoruz
+$("#mobile-start").click(function() {
+  if (!started) {
+    $("#level-title").text("Level " + level);  // Seviyeyi göster
+    nextSequence(); // Yeni bir desen oluştur
+    started = true; // Oyunu başlat
+    $("#mobile-start").hide(); // "Tap to Start" mesajını gizle
+    $("#level-title").show();  // "level-title" mobilde görünür hale gelsin
+  }
+});
+
 // Butonlara tıklama olayını ekliyoruz
 $(".btn").click(function() {
 
@@ -47,8 +58,15 @@ function checkAnswer(currentLevel) {
       // Yanlış cevap verildiyse
       playSound("wrong"); // Yanlış sesini çal
       $("body").addClass("game-over"); // Game over animasyonu ekle
-      $("#level-title").text("Game Over, Press Any Key to Restart"); // Oyun bitti mesajı
-
+      
+      // Web ve mobilde mesajları farklı şekilde göster
+    if ($(window).width() <= 768) {  // Eğer mobilse
+      $("#mobile-start").show().html("GAME OVER<br>Tap to Restart");
+      $("#level-title").hide();  // Webdeki başlık gizlensin
+    } else {  // Webde
+      $("#level-title").text("Game Over, Press Any Key to Restart");
+      $("#mobile-start").hide();  // Mobildeki başlık gizlensin
+    }
       setTimeout(function () {
         $("body").removeClass("game-over"); // Game over animasyonunu kaldır
       }, 200);
@@ -59,9 +77,14 @@ function checkAnswer(currentLevel) {
 
 // Yeni bir desen oluşturma fonksiyonu
 function nextSequence() {
-  userClickedPattern = []; // Kullanıcı desenini sıfırla
-  level++; // Seviyeyi bir artır
-  $("#level-title").text("Level " + level); // Yeni seviyeyi göster
+  userClickedPattern = [];
+  level++;  // Seviye arttırma işlemi burada yapılır
+  if ($(window).width() <= 768) {  // Eğer mobilse
+    $("#mobile-start").hide();  // Mobildeki "Tap to Start" mesajını gizle
+    $("#level-title").show().text("Level " + level);  // Mobilde seviyeyi göster
+  } else {
+    $("#level-title").text("Level " + level);  // Webde seviyeyi göster
+  }
   var randomNumber = Math.floor(Math.random() * 4); // 0 ile 3 arasında rastgele bir sayı seç
   var randomChosenColour = buttonColours[randomNumber]; // Rastgele bir renk seç
   gamePattern.push(randomChosenColour); // Rengi oyunun desenine ekle
