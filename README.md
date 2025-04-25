@@ -29,3 +29,11 @@ Oyun, aşağıdaki bağlantı üzerinden canlı olarak oynanabilir:
 3. **Kullanıcı Cevabı:** Ekranda gördüğünüz renklerin sırasını tıklayarak doğru bir şekilde tekrar etmeniz gerekir.
 4. **Doğru Cevap:** Tüm deseni doğru tekrar ettiğinizde yeni bir desen gösterilir ve seviye bir artar.
 5. **Yanlış Cevap:** Eğer bir renk yanlış tıklanırsa oyun sona erer ve sıfırlanır.
+
+## 📱 Mobil Uyumluluk (Eğitim Dışı Geliştirme)
+
+Bu projeye ek olarak, oyun mobil cihazlarda da sorunsuz çalışacak şekilde uyarlanmıştır:
+
+- Mobil ekranlarda **“Tap to Start”** özelliği eklendi.
+- Oyun başlangıcı ve yeniden başlatma işlemleri, mobil dokunmatik ekranlar ile uyumlu hale getirildi.
+- Arayüz responsive (duyarlı) hale getirilerek küçük ekranlarda da düzgün görünmesi sağlandı.
